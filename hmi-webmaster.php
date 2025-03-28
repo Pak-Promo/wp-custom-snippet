@@ -84,12 +84,18 @@ function hmi_remove_plugin() {
 register_uninstall_hook(__FILE__, 'hmi_remove_plugin');
 
 function hmi_set_gclid() {
-    $page_slug =  get_post_field( 'post_name', $post->ID);
-    if ($page_slug != 'book-online') {
-        setcookie("page_slug", $page_slug);   
+    $queried_object = get_queried_object();
+
+    if ($queried_object && isset($queried_object->post_name)) {
+        $my_slug = $queried_object->post_name;
+    
+        if (!empty($my_slug) && $my_slug != 'book-online') {
+            setcookie("page_slug", $my_slug, time() + 3600, "/");  
+        }
+    } else {
     }
     if(isset($_GET['gclid'])) {
-        setcookie("hmi_gclid", $_GET['gclid']); 
+        setcookie("hmi_gclid", $_GET['gclid']);
     }
     if(isset($_GET['utm_source'])) {
         setcookie("hmi_utm_source", $_GET['utm_source']); 

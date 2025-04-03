@@ -85,6 +85,7 @@ register_uninstall_hook(__FILE__, 'hmi_remove_plugin');
 
 function hmi_set_gclid() {
     $queried_object = get_queried_object();
+    
 
     if ($queried_object && isset($queried_object->post_name)) {
         $my_slug = $queried_object->post_name;
@@ -93,6 +94,9 @@ function hmi_set_gclid() {
             setcookie("page_slug", $my_slug, time() + 3600, "/");  
         }
     } else {
+    }
+    if(isset($_GET['promo'])) {
+        setcookie("hmi_promo", $_GET['promo']);
     }
     if(isset($_GET['gclid'])) {
         setcookie("hmi_gclid", $_GET['gclid']);

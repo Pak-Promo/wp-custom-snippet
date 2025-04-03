@@ -26,6 +26,7 @@ $url_utm_campaign = '';
 $url_utm_term = '';
 $url_utm_content = '';
 $url_page_slug = '';
+$hmi_promo='';
 
 if (is_array($hmi_get_url_parameters_array) && array_key_exists('gclid',$hmi_get_url_parameters_array) && isset($_COOKIE["hmi_gclid"])) {
 	$hmi_gclid = $_COOKIE["hmi_gclid"];
@@ -57,6 +58,10 @@ if (is_array($hmi_get_url_parameters_array) && array_key_exists('utm_content',$h
 	$utm_content = $_COOKIE["hmi_utm_content"];
 	$url_utm_content = '&utm_content='.$utm_content;
 }
-$url = $url.'?'.$url_gclid.$url_page_slug.$url_utm_source.$url_utm_medium.$url_utm_campaign.$url_utm_term.$url_utm_content;
+if (is_array($hmi_get_url_parameters_array) && array_key_exists('utm_content',$hmi_get_url_parameters_array)  && isset($_COOKIE["hmi_promo"])) {
+	$hmi_promo = $_COOKIE["hmi_promo"];
+	$promo = '&promo='.$hmi_promo;
+}
+$url = $url.'?'.$url_gclid.$url_page_slug.$url_utm_source.$url_utm_medium.$url_utm_campaign.$url_utm_term.$url_utm_content.$promo;
 header('Location: '.$url);
 ?>

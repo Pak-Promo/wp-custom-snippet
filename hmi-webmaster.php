@@ -77,6 +77,8 @@ function hmi_remove_plugin() {
     delete_option('hmi_url_parameters');
     delete_option('HMI_Google_Analytics_Id');
     delete_option('HMI_Google_Tag_Manager_Id');
+    delete_option('Custom_Script_Head_Tag');
+    delete_option('Custom_Script_Body_Tag');
     delete_option('HMI_GCLID_Form_Redirect_URL');
     $page = get_page_by_path('redirect-hmi-form');
     wp_delete_post($page->ID , true);

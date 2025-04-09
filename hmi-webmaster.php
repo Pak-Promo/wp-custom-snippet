@@ -184,13 +184,13 @@ add_action('admin_menu', 'hmi_dasboard');
 <tr>
 <th scope="row"><label for="Custom_Script_Head_Tag">Custom Scripts <br>(Include in Head Tag)</label></th>
 <td>
-    <textarea rows="5" name="Custom_Script_Head_Tag" id="custom_script_head_tag" placeholder="Custom_Script_Head_Tag" class="regular-text"><?php echo get_option('Custom_Script_Head_Tag') ?></textarea>
+    <textarea rows="5" name="Custom_Script_Head_Tag" id="custom_script_head_tag" placeholder="Custom Script for Head Tag" class="regular-text"><?php echo get_option('Custom_Script_Head_Tag') ?></textarea>
 </td>
 </tr>
 <tr>
 <th scope="row"><label for="Custom_Script_Body_Tag">Custom Scripts <br>(Include in Body Tag)</label></th>
 <td>
-    <textarea rows="5" name="Custom_Script_Body_Tag" id="custom_script_head_tag" placeholder="Custom_Script_Body_Tag" class="regular-text"><?php echo get_option('Custom_Script_Body_Tag') ?></textarea>
+    <textarea rows="5" name="Custom_Script_Body_Tag" id="custom_script_head_tag" placeholder="Custom Script for Body Tag" class="regular-text"><?php echo get_option('Custom_Script_Body_Tag') ?></textarea>
 </td>
 </tr>
 <tr>
@@ -214,7 +214,7 @@ add_action('admin_menu', 'hmi_dasboard');
 </tr>
 <tr>
 <th scope="row"><label for="HMI_GCLID_Form_Redirect_URL">HMI GCLID Form Redirect URL</label></th>
-<td><input  type="text" name="HMI_GCLID_Form_Redirect_URL" id="google_tag_id" value="<?php echo get_option('HMI_GCLID_Form_Redirect_URL') ?>" placeholder="Hmi Gclid form Redirect Url" class="regular-text" required='required'></td>
+<td><input  type="text" name="HMI_GCLID_Form_Redirect_URL" id="google_tag_id" value="<?php echo get_option('HMI_GCLID_Form_Redirect_URL') ?>" placeholder="Hmi Gclid form Redirect Url" class="regular-text"></td>
 </tr>
 <tr>
     <th></th>

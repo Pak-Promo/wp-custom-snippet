@@ -35,7 +35,7 @@ add_action('wp_enqueue_scripts', 'load_bootstrap');
 // creations of page.
 function create_custom_page() {
     $page_title = 'book-online';
-    $page_check = get_page_by_title($page_title);
+    $page_check = get_page_by_path($page_title);
     if (!$page_check) {
         $new_page = array(
             'post_title'    => $page_title,
@@ -47,7 +47,6 @@ function create_custom_page() {
         wp_insert_post($new_page);
     }
 }
-
 add_action('admin_init', 'create_custom_page'); 
 function hmi_activate_plugin() {
     // this code to create value of opaton in table 
@@ -108,8 +107,8 @@ function hmi_set_gclid() {
         setcookie("hmi_utm_medium", $_GET['utm_medium']); 
     }
 
-    if(isset($_GET['utm_campaign '])) {
-        setcookie("hmi_utm_campaign ", $_GET['utm_campaign ']); 
+    if(isset($_GET['utm_campaign'])) {
+        setcookie("hmi_utm_campaign", $_GET['utm_campaign']); 
     }
     if(isset($_GET['utm_term'])) {
          setcookie("hmi_utm_term", $_GET['utm_term']); 

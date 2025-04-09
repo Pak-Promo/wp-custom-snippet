@@ -19,10 +19,12 @@ function hmi_settings() {
         $google_analytics_id = isset($_POST['HMI_Google_Analytics_Id']) ? $_POST['HMI_Google_Analytics_Id'] : '';
         $google_tag_manager_id = isset($_POST['HMI_Google_Tag_Manager_Id']) ? $_POST['HMI_Google_Tag_Manager_Id']: '';
         $custom_script_head_tag = isset($_POST['Custom_Script_Head_Tag']) ? $_POST['Custom_Script_Head_Tag'] : '';
+        $custom_script_body_tag = isset($_POST['Custom_Script_Body_Tag']) ? $_POST['Custom_Script_Body_Tag'] : '';
         $hmi_url_parameters_form_redirect_url = isset($_POST['HMI_GCLID_Form_Redirect_URL']) ? $_POST['HMI_GCLID_Form_Redirect_URL']: '';
         update_option('hmi_url_parameters', $hmi_url_parameters);
         update_option('HMI_Google_Analytics_Id', $google_analytics_id);
         update_option('Custom_Script_Head_Tag', $custom_script_head_tag);
+        update_option('Custom_Script_Body_Tag', $custom_script_body_tag);
         update_option('HMI_Google_Tag_Manager_Id', $google_tag_manager_id);
         update_option('HMI_GCLID_Form_Redirect_URL', $hmi_url_parameters_form_redirect_url);
         echo '<div class="updated"><p>Settings saved successfully!</p></div>';
@@ -155,6 +157,12 @@ function hmi_header_code() {
 }
 }
 add_action( 'wp_head', 'hmi_header_code' );
+
+function pp_body_code()
+{
+    echo get_option('Custom_Script_Body_Tag');
+}
+add_action('wp_body_open', 'pp_body_code');
 add_action('admin_menu', 'hmi_dasboard');
     function HMI_dashboard() {
     ?>
@@ -172,9 +180,15 @@ add_action('admin_menu', 'hmi_dasboard');
 <td><input  type="text" name="HMI_Google_Tag_Manager_Id" id="google_tag_id" value="<?php echo get_option('HMI_Google_Tag_Manager_Id') ?>" placeholder="Google Tag Manager Id" class="regular-text"></td>
 </tr>
 <tr>
-<th scope="row"><label for="Custom_Script_Head_Tag">Custom Scripts (Include in Head Tag)</label></th>
+<th scope="row"><label for="Custom_Script_Head_Tag">Custom Scripts <br>(Include in Head Tag)</label></th>
 <td>
     <textarea rows="5" name="Custom_Script_Head_Tag" id="custom_script_head_tag" placeholder="Custom_Script_Head_Tag" class="regular-text"><?php echo get_option('Custom_Script_Head_Tag') ?></textarea>
+</td>
+</tr>
+<tr>
+<th scope="row"><label for="Custom_Script_Body_Tag">Custom Scripts <br>(Include in Body Tag)</label></th>
+<td>
+    <textarea rows="5" name="Custom_Script_Body_Tag" id="custom_script_head_tag" placeholder="Custom_Script_Body_Tag" class="regular-text"><?php echo get_option('Custom_Script_Body_Tag') ?></textarea>
 </td>
 </tr>
 <tr>

@@ -1,12 +1,13 @@
 <?php
-/*
-  Plugin Name: CUSTOM SNIPPET
-  Description: A plugin for webmasters to add script in head/body tags.
-  Version: 1.0
-  Author: PakPromo
-  Author URI: https://pak.promo
-  License: GPL2
- */
+/****
+    * Plugin Name: CUSTOM SNIPPET
+    * Description: A plugin for webmasters to add script in head/body tags.
+    * Version: 1.0.0
+    * Author: PakPromo
+    * Author URI: https://pak.promo
+    * License: GPLv3
+    * License URI: https://www.gnu.org/licenses/gpl-3.0.html
+    */
 $config = [
     'custom_snippet_version'=> '1.0',
 ];  
